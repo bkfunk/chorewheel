@@ -17,12 +17,13 @@
     return self;
 }
 
-- (NSArray *)choreSets
+- (NSMutableArray *)choreSets
 {
     if (!_choreSets) {
-        _choreSets = @[@[@"Dishwasher",@"Dish Rack"],
+        _choreSets = [[NSMutableArray alloc]
+                      initWithArray:@[@[@"Dishwasher",@"Dish Rack"],
                        @[@"Take out trash",@"Collect Trash"],
-                       @[@"Towels",@"Trash Bins",@"Mailman"]];
+                       @[@"Towels",@"Trash Bins",@"Mailman"]]];
     }
     
     return _choreSets;
@@ -36,12 +37,28 @@
 
 - (void)rotateChores
 {
-    
+    NSObject *o = [self.choreSets firstObject]; // get from beginning
+    [self.choreSets removeObjectAtIndex:0];
+    [self.choreSets addObject:o]; // add to end
 }
-- (void)rotateChoresNTimes:(NSUInteger)times
+- (void)unrotateChores
 {
-    for (NSInteger i=0; i<times; i++) {
-        [self rotateChores];
-    }
+    NSObject *o = [self.choreSets lastObject]; // get from end
+    [self.choreSets removeLastObject];
+    [self.choreSets insertObject:o atIndex:0]; // add to beginning
 }
+- (void)rotateChoresNTimes:(NSInteger)times
+{
+    if (times < 0) {
+        for (NSInteger i=0; i<abs(times); i++) {
+            [self unrotateChores];
+        }
+    } else {
+        for (NSInteger i=0; i<times; i++) {
+            [self rotateChores];
+        }
+    }
+    NSLog(@"Chores: \n%@", self.choreSets);
+}
+
 @end

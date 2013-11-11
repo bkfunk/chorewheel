@@ -13,9 +13,11 @@
 - (instancetype)init;
 
 - (void)rotateChores;
-- (void)rotateChoresNTimes:(NSUInteger)times;
+- (void)rotateChoresNTimes:(NSInteger)times;
+- (void)unrotateChores;
 
-@property (strong, nonatomic) NSArray *choreSets; // of Chore Set
+
+@property (strong, nonatomic) NSMutableArray *choreSets; // of Chore Set
 @property (strong, nonatomic) NSArray *housemates;
 
 @end

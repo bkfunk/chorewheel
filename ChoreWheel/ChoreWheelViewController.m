@@ -11,9 +11,33 @@
 
 @interface ChoreWheelViewController ()
 @property (nonatomic, strong) ChoreWheel *choreWheelModel;
+@property (weak, nonatomic) IBOutlet UILabel *weekLabel;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) NSDate *displayDate;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation ChoreWheelViewController
+
+- (IBAction)nextWeek:(UIButton *)sender {
+    NSLog(@"Next week!");
+    //[self.choreWheelModel rotateChores];
+    [self rotateChoreWheelNTimes:1];
+}
+- (IBAction)prevWeek:(UIButton *)sender {
+    NSLog(@"Prev week!");
+    //[self.choreWheelModel unrotateChores];
+    [self rotateChoreWheelNTimes:-1];
+}
+- (void)rotateChoreWheelNTimes:(NSInteger)times {
+    
+    [self.choreWheelModel rotateChoresNTimes:times];
+    [self.tableView reloadData];
+    NSDate *newDate = [self.displayDate dateByAddingTimeInterval:(7.0*24*60*60*times)];
+    //NSLog(@"New date: %@", newDate);
+    
+    [self updateWeekLabelForDate:newDate];
+}
 
 - (ChoreWheel *)choreWheelModel
 {
@@ -33,6 +57,24 @@
 }
 
 
+- (NSDateFormatter *)dateFormatter
+{
+    if (!_dateFormatter) {
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        [_dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    }
+    return _dateFormatter;
+}
+- (NSDate *)displayDate
+{
+    if (!_displayDate) {
+        _displayDate = [NSDate date];
+    }
+    return _displayDate;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *tableIdentifier = @"TableItem";
@@ -47,10 +89,23 @@
     return cell;
 }
 
+- (void)updateWeekLabelForDate:(NSDate *)date
+{
+    self.displayDate = date;
+    [self updateWeekLabel];
+    
+}
+- (void)updateWeekLabel
+{
+    self.weekLabel.text = [self.dateFormatter stringFromDate:self.displayDate];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self updateWeekLabel];
 }
 
 - (void)didReceiveMemoryWarning

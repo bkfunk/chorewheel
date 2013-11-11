@@ -11,7 +11,7 @@
 @interface ChoreSet : NSMutableArray
 
 @property (strong, nonatomic) NSString *shortName;
-@property (strong, nonatomic) NSMutableArray *chores; // of Chore
+//@property (strong, nonatomic) NSMutableArray *chores; // of Chore
 
 - (void)addChores:(NSArray *)newChores;
 

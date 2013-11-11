@@ -9,14 +9,14 @@
 #import "ChoreSet.h"
 
 @implementation ChoreSet
-
+/*
 - (NSArray *)chores
 {
     if (!_chores) {
         _chores = [[NSArray alloc] init];
     }
    return _chores;
-}
+}*/
 - (void)addChores:(NSArray *)newChores
 {
     
