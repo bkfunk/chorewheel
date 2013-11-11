@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChoreWheelViewController : UIViewController
+@interface ChoreWheelViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

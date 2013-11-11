@@ -21,6 +21,10 @@
 		C6AAE08F182EFD3B00EF9042 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AAE071182EFD3B00EF9042 /* UIKit.framework */; };
 		C6AAE097182EFD3B00EF9042 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6AAE095182EFD3B00EF9042 /* InfoPlist.strings */; };
 		C6AAE099182EFD3B00EF9042 /* ChoreWheelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAE098182EFD3B00EF9042 /* ChoreWheelTests.m */; };
+		C6AAE0A4182EFDA900EF9042 /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAE0A3182EFDA900EF9042 /* Chore.m */; };
+		C6AAE0A8182EFE3900EF9042 /* Housemate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAE0A7182EFE3900EF9042 /* Housemate.m */; };
+		C6AAE0AB182EFE6700EF9042 /* ChoreSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAE0AA182EFE6700EF9042 /* ChoreSet.m */; };
+		C6AAE0B418301B0D00EF9042 /* ChoreWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAE0B318301B0D00EF9042 /* ChoreWheel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 		C6AAE094182EFD3B00EF9042 /* ChoreWheelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChoreWheelTests-Info.plist"; sourceTree = "<group>"; };
 		C6AAE096182EFD3B00EF9042 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C6AAE098182EFD3B00EF9042 /* ChoreWheelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoreWheelTests.m; sourceTree = "<group>"; };
+		C6AAE0A2182EFDA900EF9042 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chore.h; sourceTree = "<group>"; };
+		C6AAE0A3182EFDA900EF9042 /* Chore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chore.m; sourceTree = "<group>"; };
+		C6AAE0A6182EFE3900EF9042 /* Housemate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Housemate.h; path = Model/Housemate.h; sourceTree = "<group>"; };
+		C6AAE0A7182EFE3900EF9042 /* Housemate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Housemate.m; path = Model/Housemate.m; sourceTree = "<group>"; };
+		C6AAE0A9182EFE6700EF9042 /* ChoreSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoreSet.h; path = Model/ChoreSet.h; sourceTree = "<group>"; };
+		C6AAE0AA182EFE6700EF9042 /* ChoreSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoreSet.m; path = Model/ChoreSet.m; sourceTree = "<group>"; };
+		C6AAE0B218301B0D00EF9042 /* ChoreWheel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoreWheel.h; path = Model/ChoreWheel.h; sourceTree = "<group>"; };
+		C6AAE0B318301B0D00EF9042 /* ChoreWheel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoreWheel.m; path = Model/ChoreWheel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +124,7 @@
 		C6AAE073182EFD3B00EF9042 /* ChoreWheel */ = {
 			isa = PBXGroup;
 			children = (
-				C6AAE07C182EFD3B00EF9042 /* ChoreWheelAppDelegate.h */,
-				C6AAE07D182EFD3B00EF9042 /* ChoreWheelAppDelegate.m */,
+				C6AAE0A5182EFDB100EF9042 /* Model */,
 				C6AAE07F182EFD3B00EF9042 /* Main.storyboard */,
 				C6AAE082182EFD3B00EF9042 /* ChoreWheelViewController.h */,
 				C6AAE083182EFD3B00EF9042 /* ChoreWheelViewController.m */,
@@ -126,6 +137,8 @@
 		C6AAE074182EFD3B00EF9042 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6AAE07C182EFD3B00EF9042 /* ChoreWheelAppDelegate.h */,
+				C6AAE07D182EFD3B00EF9042 /* ChoreWheelAppDelegate.m */,
 				C6AAE075182EFD3B00EF9042 /* ChoreWheel-Info.plist */,
 				C6AAE076182EFD3B00EF9042 /* InfoPlist.strings */,
 				C6AAE079182EFD3B00EF9042 /* main.m */,
@@ -150,6 +163,21 @@
 				C6AAE095182EFD3B00EF9042 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C6AAE0A5182EFDB100EF9042 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6AAE0A2182EFDA900EF9042 /* Chore.h */,
+				C6AAE0A3182EFDA900EF9042 /* Chore.m */,
+				C6AAE0A6182EFE3900EF9042 /* Housemate.h */,
+				C6AAE0A7182EFE3900EF9042 /* Housemate.m */,
+				C6AAE0A9182EFE6700EF9042 /* ChoreSet.h */,
+				C6AAE0AA182EFE6700EF9042 /* ChoreSet.m */,
+				C6AAE0B218301B0D00EF9042 /* ChoreWheel.h */,
+				C6AAE0B318301B0D00EF9042 /* ChoreWheel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6AAE0AB182EFE6700EF9042 /* ChoreSet.m in Sources */,
 				C6AAE07E182EFD3B00EF9042 /* ChoreWheelAppDelegate.m in Sources */,
 				C6AAE084182EFD3B00EF9042 /* ChoreWheelViewController.m in Sources */,
 				C6AAE07A182EFD3B00EF9042 /* main.m in Sources */,
+				C6AAE0A4182EFDA900EF9042 /* Chore.m in Sources */,
+				C6AAE0B418301B0D00EF9042 /* ChoreWheel.m in Sources */,
+				C6AAE0A8182EFE3900EF9042 /* Housemate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
