@@ -11,7 +11,7 @@
 
 @interface ChoreWheelViewController ()
 @property (nonatomic, strong) ChoreWheel *choreWheelModel;
-@property (weak, nonatomic) IBOutlet UILabel *weekLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *weekLabel;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSDate *displayDate;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -31,12 +31,14 @@
 }
 - (void)rotateChoreWheelNTimes:(NSInteger)times {
     
-    [self.choreWheelModel rotateChoresNTimes:times];
-    [self.tableView reloadData];
+    //[self.choreWheelModel rotateChoresNTimes:times];
     NSDate *newDate = [self.displayDate dateByAddingTimeInterval:(7.0*24*60*60*times)];
+    self.displayDate = newDate;
+    [self.tableView reloadData];
+    [self updateWeekLabel];
     //NSLog(@"New date: %@", newDate);
     
-    [self updateWeekLabelForDate:newDate];
+    //[self updateWeekLabelForDate:newDate];
 }
 
 - (ChoreWheel *)choreWheelModel
@@ -69,7 +71,8 @@
 - (NSDate *)displayDate
 {
     if (!_displayDate) {
-        _displayDate = [NSDate date];
+        //_displayDate = [NSDate date];
+        [self setDisplayDate:[NSDate date]];
     }
     return _displayDate;
 }
@@ -86,6 +89,7 @@
     }
     
     cell.textLabel.text = [self.choreWheelModel.choreSets[indexPath.section] objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [[self.choreWheelModel choreSetsForDate:self.displayDate][indexPath.section] objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -97,7 +101,9 @@
 }
 - (void)updateWeekLabel
 {
-    self.weekLabel.text = [self.dateFormatter stringFromDate:self.displayDate];
+    //self.weekLabel.text = [self.dateFormatter stringFromDate:self.displayDate];
+    self.navigationController.title = [self.dateFormatter stringFromDate:self.displayDate];
+    NSLog(@"Nav controller: %@", self.navigationController);
 }
 
 - (void)viewDidLoad

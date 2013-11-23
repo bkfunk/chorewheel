@@ -12,6 +12,59 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *loadDefaults = [[NSMutableDictionary alloc] init];
+    [loadDefaults setObject:[[NSMutableArray alloc]
+                             initWithArray:@[@[@"Dishwasher",@"Drying Rack"],
+                                             @[@"Clean Out Fridge",@"Wash Towels",@"Collect Dishes",@"Roll Out Trash Bins"],
+                                             @[@"Collect Trash",@"Take Out Trash",@"Mailman"]]]
+                     forKey:@"choreSets"];
+    [loadDefaults setObject:@[@"Brian", @"Dave", @"John"] forKey:@"housemates"];
+    
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *rotationStartDateComponents = [[NSDateComponents alloc] init]; // Date when first rotation starts
+    [rotationStartDateComponents setYear:2013];
+    [rotationStartDateComponents setMonth:10];
+    [rotationStartDateComponents setDay:9];
+    [rotationStartDateComponents setHour:9];
+    NSDate *rotationStartDate = [calendar dateFromComponents:rotationStartDateComponents];
+    [loadDefaults setObject:rotationStartDate forKey:@"rotationStartDate"];
+    
+    
+    /*
+    NSDateComponents *rotationDateComponents = [[NSDateComponents alloc] init];
+    [rotationDateComponents setHour:0];
+    [rotationDateComponents setMinute:0];
+    //[rotationDateComponents setTimeZone:[NSTimeZone defaultTimeZone]];
+    [rotationDateComponents setYear:2013];
+    NSDate *rotationDate = [calendar dateFromComponents:rotationDateComponents];
+    NSLog(@"Rotation date: %@", rotationDate);
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EEEE MMM dd, yyyy - hh:mm:ss a, z"];
+    NSLog(@"Formatted: %@", [formatter stringFromDate:rotationDate]);
+    
+    [loadDefaults setObject:rotationDate forKey:@"rotationStartDate"];
+    
+    NSDateComponents *weekdayComponents = [calendar components:NSWeekdayCalendarUnit fromDate:rotationDate];
+    NSLog(@"Weekday: %@", weekdayComponents);
+    [loadDefaults setObject:[NSNumber numberWithInteger:weekdayComponents.weekday] forKey:@"rotationWeekday"];
+    
+    NSDateComponents *dc = [calendar components:NSWeekCalendarUnit fromDate:rotationDate toDate:[NSDate date] options:0];
+    NSLog(@"Components  weeks: %@", dc);
+    
+    NSDate *testDate = [calendar dateByAddingComponents:dc toDate:rotationDate options:0];
+    NSLog(@"Adding to date: %@", [formatter stringFromDate:testDate]);
+    
+    NSInteger weeksFromRotationStartDate = dc.week;
+    
+    [loadDefaults setObject:[NSNumber numberWithInteger:weeksFromRotationStartDate] forKey:@"weeksFromRotationStartDate"];
+    */
+    [defaults registerDefaults:loadDefaults];
+    [defaults synchronize];
+    
+    
     // Override point for customization after application launch.
     return YES;
 }

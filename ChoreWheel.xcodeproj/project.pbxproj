@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C61565FB18394CB200ADA33B /* ChoreDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61565FA18394CB200ADA33B /* ChoreDetailViewController.m */; };
+		C61565FE1839545B00ADA33B /* ChoreWheelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61565FD1839545B00ADA33B /* ChoreWheelTableViewController.m */; };
+		C615660018396E6C00ADA33B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C61565FF18396E6C00ADA33B /* Settings.bundle */; };
+		C615660318396EF900ADA33B /* ChoreSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C615660218396EF900ADA33B /* ChoreSettingsViewController.m */; };
+		C6156606183974BB00ADA33B /* SettingsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6156605183974BB00ADA33B /* SettingsTabViewController.m */; };
+		C69FB0F118337B2C0004A714 /* OtherSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69FB0F018337B2C0004A714 /* OtherSettingsViewController.m */; };
 		C6AAE06E182EFD3B00EF9042 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AAE06D182EFD3B00EF9042 /* Foundation.framework */; };
 		C6AAE070182EFD3B00EF9042 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AAE06F182EFD3B00EF9042 /* CoreGraphics.framework */; };
 		C6AAE072182EFD3B00EF9042 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AAE071182EFD3B00EF9042 /* UIKit.framework */; };
@@ -38,6 +44,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C61565F918394CB200ADA33B /* ChoreDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreDetailViewController.h; sourceTree = "<group>"; };
+		C61565FA18394CB200ADA33B /* ChoreDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreDetailViewController.m; sourceTree = "<group>"; };
+		C61565FC1839545B00ADA33B /* ChoreWheelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreWheelTableViewController.h; sourceTree = "<group>"; };
+		C61565FD1839545B00ADA33B /* ChoreWheelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreWheelTableViewController.m; sourceTree = "<group>"; };
+		C61565FF18396E6C00ADA33B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		C615660118396EF900ADA33B /* ChoreSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreSettingsViewController.h; sourceTree = "<group>"; };
+		C615660218396EF900ADA33B /* ChoreSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreSettingsViewController.m; sourceTree = "<group>"; };
+		C6156604183974BB00ADA33B /* SettingsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTabViewController.h; sourceTree = "<group>"; };
+		C6156605183974BB00ADA33B /* SettingsTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTabViewController.m; sourceTree = "<group>"; };
+		C69FB0EF18337B2C0004A714 /* OtherSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherSettingsViewController.h; sourceTree = "<group>"; };
+		C69FB0F018337B2C0004A714 /* OtherSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherSettingsViewController.m; sourceTree = "<group>"; };
 		C6AAE06A182EFD3B00EF9042 /* ChoreWheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChoreWheel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AAE06D182EFD3B00EF9042 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6AAE06F182EFD3B00EF9042 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,8 +143,9 @@
 			children = (
 				C6AAE0A5182EFDB100EF9042 /* Model */,
 				C6AAE07F182EFD3B00EF9042 /* Main.storyboard */,
-				C6AAE082182EFD3B00EF9042 /* ChoreWheelViewController.h */,
-				C6AAE083182EFD3B00EF9042 /* ChoreWheelViewController.m */,
+				C6B587BB183EE4880044D77B /* Main */,
+				C6B587BC183EE49F0044D77B /* Settings */,
+				C6B587BD183EE50E0044D77B /* Old */,
 				C6AAE085182EFD3B00EF9042 /* Images.xcassets */,
 				C6AAE074182EFD3B00EF9042 /* Supporting Files */,
 			);
@@ -140,6 +158,7 @@
 				C6AAE07C182EFD3B00EF9042 /* ChoreWheelAppDelegate.h */,
 				C6AAE07D182EFD3B00EF9042 /* ChoreWheelAppDelegate.m */,
 				C6AAE075182EFD3B00EF9042 /* ChoreWheel-Info.plist */,
+				C61565FF18396E6C00ADA33B /* Settings.bundle */,
 				C6AAE076182EFD3B00EF9042 /* InfoPlist.strings */,
 				C6AAE079182EFD3B00EF9042 /* main.m */,
 				C6AAE07B182EFD3B00EF9042 /* ChoreWheel-Prefix.pch */,
@@ -178,6 +197,39 @@
 				C6AAE0B318301B0D00EF9042 /* ChoreWheel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		C6B587BB183EE4880044D77B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C61565FC1839545B00ADA33B /* ChoreWheelTableViewController.h */,
+				C61565FD1839545B00ADA33B /* ChoreWheelTableViewController.m */,
+				C61565F918394CB200ADA33B /* ChoreDetailViewController.h */,
+				C61565FA18394CB200ADA33B /* ChoreDetailViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		C6B587BC183EE49F0044D77B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C6156604183974BB00ADA33B /* SettingsTabViewController.h */,
+				C6156605183974BB00ADA33B /* SettingsTabViewController.m */,
+				C615660118396EF900ADA33B /* ChoreSettingsViewController.h */,
+				C615660218396EF900ADA33B /* ChoreSettingsViewController.m */,
+				C69FB0EF18337B2C0004A714 /* OtherSettingsViewController.h */,
+				C69FB0F018337B2C0004A714 /* OtherSettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		C6B587BD183EE50E0044D77B /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				C6AAE082182EFD3B00EF9042 /* ChoreWheelViewController.h */,
+				C6AAE083182EFD3B00EF9042 /* ChoreWheelViewController.m */,
+			);
+			name = Old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +280,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Brian Karfunkel";
 				TargetAttributes = {
+					C6AAE069182EFD3B00EF9042 = {
+						DevelopmentTeam = 8V39EX694D;
+					};
 					C6AAE08A182EFD3B00EF9042 = {
 						TestTargetID = C6AAE069182EFD3B00EF9042;
 					};
@@ -257,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C615660018396E6C00ADA33B /* Settings.bundle in Resources */,
 				C6AAE086182EFD3B00EF9042 /* Images.xcassets in Resources */,
 				C6AAE078182EFD3B00EF9042 /* InfoPlist.strings in Resources */,
 				C6AAE081182EFD3B00EF9042 /* Main.storyboard in Resources */,
@@ -278,13 +334,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C615660318396EF900ADA33B /* ChoreSettingsViewController.m in Sources */,
 				C6AAE0AB182EFE6700EF9042 /* ChoreSet.m in Sources */,
 				C6AAE07E182EFD3B00EF9042 /* ChoreWheelAppDelegate.m in Sources */,
 				C6AAE084182EFD3B00EF9042 /* ChoreWheelViewController.m in Sources */,
+				C69FB0F118337B2C0004A714 /* OtherSettingsViewController.m in Sources */,
+				C6156606183974BB00ADA33B /* SettingsTabViewController.m in Sources */,
 				C6AAE07A182EFD3B00EF9042 /* main.m in Sources */,
 				C6AAE0A4182EFDA900EF9042 /* Chore.m in Sources */,
 				C6AAE0B418301B0D00EF9042 /* ChoreWheel.m in Sources */,
 				C6AAE0A8182EFE3900EF9042 /* Housemate.m in Sources */,
+				C61565FB18394CB200ADA33B /* ChoreDetailViewController.m in Sources */,
+				C61565FE1839545B00ADA33B /* ChoreWheelTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,10 +472,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChoreWheel/ChoreWheel-Prefix.pch";
 				INFOPLIST_FILE = "ChoreWheel/ChoreWheel-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -424,10 +488,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChoreWheel/ChoreWheel-Prefix.pch";
 				INFOPLIST_FILE = "ChoreWheel/ChoreWheel-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -493,6 +560,7 @@
 				C6AAE09E182EFD3B00EF9042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C6AAE09F182EFD3B00EF9042 /* Build configuration list for PBXNativeTarget "ChoreWheelTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +569,7 @@
 				C6AAE0A1182EFD3B00EF9042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
