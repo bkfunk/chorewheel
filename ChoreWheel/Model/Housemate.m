@@ -10,4 +10,15 @@
 
 @implementation Housemate
 
+
+- (instancetype)initWithName:(NSString *)name choreIndex:(NSUInteger)index
+{
+    self = [super init];
+    
+    self.name = name;
+    self.choreIndex = index;
+    
+    return self;
+}
+
 @end

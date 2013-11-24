@@ -7,21 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Housemate.h"
 
 @interface ChoreWheel : NSObject
 
 - (instancetype)init;
 
+
+- (NSString *)titleForChoreGroup:(NSInteger)group;
+- (NSArray *)choresForChoreGroup:(NSInteger)group;
+//- (NSArray *)choreGroupTitles;
+- (NSUInteger)choreGroupCount;
+- (NSInteger)choreCountForChoreGroup:(NSInteger)group;
+- (NSString *)choreInChoreGroup:(NSInteger)group atIndex:(NSInteger)index;
+
 //- (void)rotateChores;
 //- (void)rotateChoresNTimes:(NSInteger)times;
 //- (void)unrotateChores;
-- (NSArray *)choreSetsForDate:(NSDate *)date;
+//- (NSArray *)choreSetsForDate:(NSDate *)date;
 
 
-@property (strong, nonatomic) NSMutableArray *choreSets; // of Chore Set
-@property (strong, nonatomic) NSArray *housemates;
-@property (strong, nonatomic) NSDate *rotationStartDate;
+//@property (strong, nonatomic) NSMutableArray *choreSets; // of Chore Set
+//@property (strong, nonatomic) NSArray *housemates;
+//@property (strong, nonatomic) NSDate *rotationStartDate;
 @property (strong, nonatomic) NSDate *date;
-@property (strong, nonatomic) NSMutableArray *rotatedChores;
+//@property (strong, nonatomic) NSMutableArray *rotatedChores;
 
 @end

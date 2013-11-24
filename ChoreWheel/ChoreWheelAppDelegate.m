@@ -12,14 +12,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //[FBLoginView class];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *loadDefaults = [[NSMutableDictionary alloc] init];
     [loadDefaults setObject:[[NSMutableArray alloc]
-                             initWithArray:@[@[@"Dishwasher",@"Drying Rack"],
-                                             @[@"Clean Out Fridge",@"Wash Towels",@"Collect Dishes",@"Roll Out Trash Bins"],
+                             initWithArray:@[@[@"1: Dishwasher",@"Drying Rack"],
+                                             @[@"2: Clean Out Fridge",@"Wash Towels",@"Collect Dishes",@"Roll Out Trash Bins"],
                                              @[@"Collect Trash",@"Take Out Trash",@"Mailman"]]]
                      forKey:@"choreSets"];
-    [loadDefaults setObject:@[@"Brian", @"Dave", @"John"] forKey:@"housemates"];
+    [loadDefaults setObject:@[@{ @"name" : @"Brian",
+                                 @"listingIndex" : @0,
+                                 @"choreIndex" : @0 },
+                              @{ @"name" : @"Dave" ,
+                                 @"listingIndex" : @1,
+                                 @"choreIndex" : @1 },
+                              @{ @"name" : @"John",
+                                 @"listingIndex" : @2,
+                                 @"choreIndex" : @2 }]
+                     forKey:@"housemates"];
     
     
     NSCalendar *calendar = [NSCalendar currentCalendar];

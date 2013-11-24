@@ -20,7 +20,6 @@
 		C6AAE07A182EFD3B00EF9042 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAE079182EFD3B00EF9042 /* main.m */; };
 		C6AAE07E182EFD3B00EF9042 /* ChoreWheelAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAE07D182EFD3B00EF9042 /* ChoreWheelAppDelegate.m */; };
 		C6AAE081182EFD3B00EF9042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6AAE07F182EFD3B00EF9042 /* Main.storyboard */; };
-		C6AAE084182EFD3B00EF9042 /* ChoreWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6AAE083182EFD3B00EF9042 /* ChoreWheelViewController.m */; };
 		C6AAE086182EFD3B00EF9042 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6AAE085182EFD3B00EF9042 /* Images.xcassets */; };
 		C6AAE08D182EFD3B00EF9042 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AAE08C182EFD3B00EF9042 /* XCTest.framework */; };
 		C6AAE08E182EFD3B00EF9042 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AAE06D182EFD3B00EF9042 /* Foundation.framework */; };
@@ -66,8 +65,6 @@
 		C6AAE07C182EFD3B00EF9042 /* ChoreWheelAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChoreWheelAppDelegate.h; sourceTree = "<group>"; };
 		C6AAE07D182EFD3B00EF9042 /* ChoreWheelAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoreWheelAppDelegate.m; sourceTree = "<group>"; };
 		C6AAE080182EFD3B00EF9042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C6AAE082182EFD3B00EF9042 /* ChoreWheelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChoreWheelViewController.h; sourceTree = "<group>"; };
-		C6AAE083182EFD3B00EF9042 /* ChoreWheelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoreWheelViewController.m; sourceTree = "<group>"; };
 		C6AAE085182EFD3B00EF9042 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C6AAE08B182EFD3B00EF9042 /* ChoreWheelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChoreWheelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AAE08C182EFD3B00EF9042 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -145,7 +142,6 @@
 				C6AAE07F182EFD3B00EF9042 /* Main.storyboard */,
 				C6B587BB183EE4880044D77B /* Main */,
 				C6B587BC183EE49F0044D77B /* Settings */,
-				C6B587BD183EE50E0044D77B /* Old */,
 				C6AAE085182EFD3B00EF9042 /* Images.xcassets */,
 				C6AAE074182EFD3B00EF9042 /* Supporting Files */,
 			);
@@ -221,15 +217,6 @@
 				C69FB0F018337B2C0004A714 /* OtherSettingsViewController.m */,
 			);
 			name = Settings;
-			sourceTree = "<group>";
-		};
-		C6B587BD183EE50E0044D77B /* Old */ = {
-			isa = PBXGroup;
-			children = (
-				C6AAE082182EFD3B00EF9042 /* ChoreWheelViewController.h */,
-				C6AAE083182EFD3B00EF9042 /* ChoreWheelViewController.m */,
-			);
-			name = Old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +324,6 @@
 				C615660318396EF900ADA33B /* ChoreSettingsViewController.m in Sources */,
 				C6AAE0AB182EFE6700EF9042 /* ChoreSet.m in Sources */,
 				C6AAE07E182EFD3B00EF9042 /* ChoreWheelAppDelegate.m in Sources */,
-				C6AAE084182EFD3B00EF9042 /* ChoreWheelViewController.m in Sources */,
 				C69FB0F118337B2C0004A714 /* OtherSettingsViewController.m in Sources */,
 				C6156606183974BB00ADA33B /* SettingsTabViewController.m in Sources */,
 				C6AAE07A182EFD3B00EF9042 /* main.m in Sources */,

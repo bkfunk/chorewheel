@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSDate *displayDate;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *todayButton;
-@property (strong, nonatomic) NSArray *choreSets;
+//@property (strong, nonatomic) NSArray *choreSets;
 @end
 
 @implementation ChoreWheelTableViewController
@@ -49,20 +49,20 @@
 - (void)setDisplayDate:(NSDate *)displayDate
 {
     _displayDate = displayDate;
-    //[self.choreWheelModel setDate:self.displayDate];
+    [self.choreWheelModel setDate:_displayDate];
     // Set chore sets array to be the chore sets from the model, for the current display date
-    [self setChoreSets:[self.choreWheelModel choreSetsForDate:_displayDate]];
+    //[self setChoreSets:[self.choreWheelModel choreSetsForDate:_displayDate]];
     [self updateDateDisplayTitle];
     [self updateTodayButton];
     
     
 }
-
+/*
 - (NSArray *)choreSets
 {
     if (!_choreSets) _choreSets = [self.choreWheelModel choreSetsForDate:self.displayDate];
     return _choreSets;
-}
+}*/
 
 
 #pragma mark - Buttons to Rotate Chores/Set Date
@@ -72,6 +72,7 @@
     [self setDisplayDate:[NSDate date]];
     //[self updateDateDisplayTitleForDate:[NSDate date]];
     //[self updateTodayButton];
+    [self.tableView reloadData];
 }
 
 - (IBAction)prevWeek:(UIBarButtonItem *)sender
@@ -88,48 +89,25 @@
 - (void)rotateChoreWheelNTimes:(NSInteger)times
 {
     
-    //[self.choreWheelModel rotateChoresNTimes:times];
     [self setDisplayDate:[self.displayDate dateByAddingTimeInterval:(7.0*24*60*60*times)]];
-    //NSLog(@"New date: %@", newDate);
-    //self.displayDate = newDate;
-    //[self updateDateDisplayTitleForDate:newDate];
-    //[self updateDateDisplayTitle];
-    //[self updateTodayButton];
-    //[self.choreWheelModel setDate:self.displayDate];
     [self.tableView reloadData];
     
 }
 
 #pragma mark - Update Date Displays
-/*
-- (void)updateDateDisplayTitleForDate:(NSDate *)date
-{
-    self.displayDate = date;
-    [self updateDateDisplayTitle];
-    
-}*/
 
 - (void)updateDateDisplayTitle
 {
-    //self.weekLabel.text = [self.dateFormatter stringFromDate:self.displayDate];
-    
-    NSLog(@"Title: %@", self.title);
     self.title = [self.dateFormatter stringFromDate:self.displayDate];
 }
 
 - (void)updateTodayButton
 {
-    
-    /*NSDateComponents *dayDifference = [[NSCalendar currentCalendar] components:NSDayCalendarUnit
-                                                                      fromDate:self.displayDate
-                                                                        toDate:[NSDate date]
-                                                                       options:0];*/
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM dd, yyyy"];
     
     if (![[formatter stringFromDate:self.displayDate] isEqualToString:[formatter stringFromDate:[NSDate date]]]) {
-    // If looking ahead/back, set Today button to go back to current date
-    //if (![self.displayDate isEqualToDate:[NSDate date]]) {
+        // If looking ahead/back, set Today button to go back to current date
         self.todayButton.title = @"Today";
         self.todayButton.enabled = YES;
     } else { // disable button and hide title
@@ -158,7 +136,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self updateDateDisplayTitle];
+    [self setDisplayDate:[NSDate date]];
+    //[self updateDateDisplayTitle];
 }
 
 - (void)didReceiveMemoryWarning
@@ -173,21 +152,22 @@
 {
     // Return the number of sections.
     //return [self.choreWheelModel.rotatedChores count];
-    return [self.choreSets count];
+    //return [self.choreSets count];
+    
+    return [self.choreWheelModel choreGroupCount];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    //return [self.choreWheelModel.rotatedChores[section] count];
-    //return [self.choreWheelModel.choreSets[section] count];
-    //return [self.choreWheelModel choreSetsForDate:self.displayDate]
-    return [self.choreSets[section] count];
+    //NSInteger choreCount = [[self.choreWheelModel choresForChoreGroup:section] count];
+    NSInteger choreCount = [self.choreWheelModel choreCountForChoreGroup:section];
+    return (choreCount > 0) ? choreCount : 1; // if empty, we'll create a cell for "None"
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [self.choreWheelModel.housemates objectAtIndex:section];
+    return [self.choreWheelModel titleForChoreGroup:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -200,9 +180,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    //cell.textLabel.text = [self.choreWheelModel.rotatedChores[indexPath.section] objectAtIndex:indexPath.row];
-    //cell.textLabel.text = [[self.choreWheelModel choreSetsForDate:self.displayDate][indexPath.section] objectAtIndex:indexPath.row];
-    cell.textLabel.text = [self.choreSets[indexPath.section] objectAtIndex:indexPath.row];
+    // Set text to be the chore title
+    //cell.textLabel.text = [[self.choreWheelModel choresForChoreGroup:indexPath.section] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.choreWheelModel choreInChoreGroup:indexPath.section atIndex:indexPath.row];
+    if (cell.textLabel.text == nil) {
+        cell.textLabel.text = @"None";
+        cell.textLabel.enabled = NO;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        cell.textLabel.enabled = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
 }

@@ -10,6 +10,10 @@
 #import "ChoreSet.h"
 @interface Housemate : NSObject
 
+- (instancetype)initWithName:(NSString *)name choreIndex:(NSUInteger)index;
+
 @property (strong, nonatomic) ChoreSet *choreSet;
+@property (strong, nonatomic) NSString *name;
+@property (nonatomic) NSUInteger choreIndex;
 
 @end
