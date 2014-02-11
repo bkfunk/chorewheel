@@ -1,51 +1,34 @@
 //
-//  ChoreSettingsViewController.m
+//  HousematesSettingsViewController.m
 //  ChoreWheel
 //
-//  Created by Brian Karfunkel on 11/17/13.
-//  Copyright (c) 2013 Brian Karfunkel. All rights reserved.
+//  Created by Brian Karfunkel on 1/4/14.
+//  Copyright (c) 2014 Brian Karfunkel. All rights reserved.
 //
 
-#import "ChoreSettingsViewController.h"
+#import "HousematesSettingsViewController.h"
 #import "SettingsTabViewController.h"
 
-@interface ChoreSettingsViewController ()
-//@property (strong, nonatomic) NSArray *choreSets;
+@interface HousematesSettingsViewController ()
+@property (strong, nonatomic) NSArray *housemates;
 @end
 
-@implementation ChoreSettingsViewController
-- (IBAction)closeSettings:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+@implementation HousematesSettingsViewController
 
-- (ChoreWheel *)choreWheelModel
+- (NSArray *)housemates
 {
-    if (!_choreWheelModel) {
-        SettingsTabViewController *settingsTabVC = (SettingsTabViewController *)self.navigationController.tabBarController;
-        NSLog(@"Settings vc: %@", settingsTabVC);
-        _choreWheelModel = settingsTabVC.choreWheelModel;
+    if (!_housemates) {
+        _housemates = [[NSUserDefaults standardUserDefaults]
+                       objectForKey:@"housemates"];
     }
-    return _choreWheelModel;
+    return _housemates;
 }
-
-/*
-- (NSArray *)choreSets
-{
-    if (!_choreSets) {
-        //_choreSets = [[NSUserDefaults standardUserDefaults] objectForKey:@"choreSets"];
-        _choreSets = self.choreWheelModel
-    }
-    return _choreSets;
-}*/
-
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        //[self setChoreWheelModel:[[self parentViewController] parentViewController].choreWheelModel];
-        
     }
     return self;
 }
@@ -53,11 +36,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        // Uncomment the following line to preserve selection between presentations.
+
+    // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSLog(@"Hello world");
+    SettingsTabViewController *settingsTabVC = (SettingsTabViewController *)self.navigationController.tabBarController;
+    NSLog(@"Settings vc: %@", settingsTabVC);
+    self.choreWheelModel = settingsTabVC.choreWheelModel;
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,43 +60,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [self.choreWheelModel choreGroupCount];
+    return 1; //[self.choreWheelModel housematesCount];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.choreWheelModel choreCountForChoreGroup:section];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    //return [self.choreWheelModel.housemates objectAtIndex:section];
-    return [NSString stringWithFormat:@"Chore Group %ld", section+1];
+    return [self.choreWheelModel housematesCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ChoreSettingsCell";
+    static NSString *CellIdentifier = @"HousemateSettingsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
-    cell.textLabel.text = [self.choreWheelModel choreInChoreGroup:indexPath.section atIndex:indexPath.row];
+    NSLog(@"TEST");
+    cell.textLabel.text = [self.choreWheelModel housemateNameAtIndex:indexPath.row];
     
     return cell;
 }
-
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -127,13 +112,11 @@
 }
 
 
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    [self.choreWheelModel moveChoreFromGroup:fromIndexPath.section
-                                   fromIndex:fromIndexPath.row
-                                     toGroup:toIndexPath.section
-                                     toIndex:toIndexPath.row];
+    
 }
 
 

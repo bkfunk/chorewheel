@@ -21,6 +21,11 @@
 - (NSInteger)choreCountForChoreGroup:(NSInteger)group;
 - (NSString *)choreInChoreGroup:(NSInteger)group atIndex:(NSInteger)index;
 
+- (void)moveChoreFromGroup:(NSInteger)fromGroup fromIndex:(NSInteger)fromIndex toGroup:(NSInteger)toGroup toIndex:(NSInteger)toIndex;
+
+- (NSUInteger)housematesCount;
+- (NSString *)housemateNameAtIndex:(NSInteger)index;
+
 //- (void)rotateChores;
 //- (void)rotateChoresNTimes:(NSInteger)times;
 //- (void)unrotateChores;

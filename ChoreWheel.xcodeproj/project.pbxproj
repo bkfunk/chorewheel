@@ -12,6 +12,7 @@
 		C615660018396E6C00ADA33B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C61565FF18396E6C00ADA33B /* Settings.bundle */; };
 		C615660318396EF900ADA33B /* ChoreSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C615660218396EF900ADA33B /* ChoreSettingsViewController.m */; };
 		C6156606183974BB00ADA33B /* SettingsTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6156605183974BB00ADA33B /* SettingsTabViewController.m */; };
+		C617CAF518789A5A0062736D /* HousematesSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C617CAF418789A5A0062736D /* HousematesSettingsViewController.m */; };
 		C69FB0F118337B2C0004A714 /* OtherSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69FB0F018337B2C0004A714 /* OtherSettingsViewController.m */; };
 		C6AAE06E182EFD3B00EF9042 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AAE06D182EFD3B00EF9042 /* Foundation.framework */; };
 		C6AAE070182EFD3B00EF9042 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6AAE06F182EFD3B00EF9042 /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 		C615660218396EF900ADA33B /* ChoreSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreSettingsViewController.m; sourceTree = "<group>"; };
 		C6156604183974BB00ADA33B /* SettingsTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTabViewController.h; sourceTree = "<group>"; };
 		C6156605183974BB00ADA33B /* SettingsTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTabViewController.m; sourceTree = "<group>"; };
+		C617CAF318789A5A0062736D /* HousematesSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HousematesSettingsViewController.h; sourceTree = "<group>"; };
+		C617CAF418789A5A0062736D /* HousematesSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HousematesSettingsViewController.m; sourceTree = "<group>"; };
 		C69FB0EF18337B2C0004A714 /* OtherSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherSettingsViewController.h; sourceTree = "<group>"; };
 		C69FB0F018337B2C0004A714 /* OtherSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherSettingsViewController.m; sourceTree = "<group>"; };
 		C6AAE06A182EFD3B00EF9042 /* ChoreWheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChoreWheel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +216,8 @@
 				C6156605183974BB00ADA33B /* SettingsTabViewController.m */,
 				C615660118396EF900ADA33B /* ChoreSettingsViewController.h */,
 				C615660218396EF900ADA33B /* ChoreSettingsViewController.m */,
+				C617CAF318789A5A0062736D /* HousematesSettingsViewController.h */,
+				C617CAF418789A5A0062736D /* HousematesSettingsViewController.m */,
 				C69FB0EF18337B2C0004A714 /* OtherSettingsViewController.h */,
 				C69FB0F018337B2C0004A714 /* OtherSettingsViewController.m */,
 			);
@@ -324,6 +329,7 @@
 				C615660318396EF900ADA33B /* ChoreSettingsViewController.m in Sources */,
 				C6AAE0AB182EFE6700EF9042 /* ChoreSet.m in Sources */,
 				C6AAE07E182EFD3B00EF9042 /* ChoreWheelAppDelegate.m in Sources */,
+				C617CAF518789A5A0062736D /* HousematesSettingsViewController.m in Sources */,
 				C69FB0F118337B2C0004A714 /* OtherSettingsViewController.m in Sources */,
 				C6156606183974BB00ADA33B /* SettingsTabViewController.m in Sources */,
 				C6AAE07A182EFD3B00EF9042 /* main.m in Sources */,

@@ -138,6 +138,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self setDisplayDate:[NSDate date]];
     //[self updateDateDisplayTitle];
+    NSLog(@"main view did load");
 }
 
 - (void)didReceiveMemoryWarning
@@ -233,6 +234,17 @@
     return YES;
 }
 */
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+    NSLog(@"View Appear");
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"View will appear");
+}
 
 
 #pragma mark - Navigation

@@ -9,7 +9,7 @@
 #import "SettingsTabViewController.h"
 
 @interface SettingsTabViewController ()
-- (IBAction)closeSettings:(UIBarButtonItem *)sender;
+//- (IBAction)closeSettings:(UIBarButtonItem *)sender;
 
 @end
 
@@ -35,9 +35,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*
 - (IBAction)closeSettings:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
+}*/
 
 @end

@@ -53,7 +53,17 @@
 - (NSMutableArray *)choreSets
 {
     if (!_choreSets) {
-        _choreSets = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"choreSets"]];
+        //_choreSets = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"choreSets"]];
+        //_choreSets = [[[NSUserDefaults standardUserDefaults] objectForKey:@"choreSets"] mutableCopy];
+        NSArray *defaultChoreSets = [[NSUserDefaults standardUserDefaults] objectForKey:@"choreSets"];
+        _choreSets = [[NSMutableArray alloc] initWithCapacity:[defaultChoreSets count]];
+        for (NSArray *defaultChoreSet in defaultChoreSets) {
+            [_choreSets addObject:[NSMutableArray arrayWithArray:defaultChoreSet]];
+        }
+        NSLog(@"Chore Sets class: %@ \ncontents: %@",[_choreSets class], _choreSets);
+        for (id cs in _choreSets) {
+            NSLog(@"chore set array class: %@ contents %@",[cs class], cs);
+        }
     }
     return _choreSets;
 }
@@ -79,13 +89,6 @@
     [self rotateChoresNTimes:round(rotations)];
     // Set date
     _date = newDate;
-}
-
-
-- (Housemate *)housemateAtIndex:(NSUInteger)index
-{
-
-    return [self.housemates objectAtIndex:index];
 }
 
 
@@ -116,6 +119,40 @@
 {
     return [[self choresForChoreGroup:group] objectAtIndex:index];
 }
+
+- (void)moveChoreFromGroup:(NSInteger)fromGroup fromIndex:(NSInteger)fromIndex toGroup:(NSInteger)toGroup toIndex:(NSInteger)toIndex
+{
+    NSLog(@"Chore sets: %@", self.choreSets);
+    NSString *newChore = [[self.choreSets objectAtIndex:fromGroup]
+                       objectAtIndex:fromIndex];
+    [[self.choreSets objectAtIndex:fromGroup] removeObjectAtIndex:fromIndex];
+    [[self.choreSets objectAtIndex:toGroup] insertObject:newChore
+                                                 atIndex:toIndex];
+    //NSMutableArray *newChoreGroup = [[self.choreSets objectAtIndex:toGroup] mutableCopy];
+    //[newChoreGroup insertObject:newChore atIndex:toIndex];
+    //[self.choreSets replaceObjectAtIndex:toGroup withObject:newChoreGroup];
+    //[self.choreSets objectAtIndex:toGroup] =
+    NSLog(@"New chores sets: %@", self.choreSets);
+}
+
+
+
+- (Housemate *)housemateAtIndex:(NSUInteger)index
+{
+    
+    return [self.housemates objectAtIndex:index];
+}
+
+- (NSUInteger)housematesCount
+{
+    return [self.housemates count];
+}
+
+- (NSString *)housemateNameAtIndex:(NSInteger)index
+{
+    return [[self housemateAtIndex:index] name];
+}
+
 
 - (void)rotateChoresNTimes:(NSInteger)times
 {
